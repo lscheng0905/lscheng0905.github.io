@@ -3,11 +3,11 @@
   <title>刘书程</title>
   
   <subtitle>lscheng</subtitle>
-  <link href="https://gitee.com/lscheng0905/lscheng0905/atom.xml" rel="self"/>
+  <link href="https://github.com/lscheng0905/lscheng0905/atom.xml" rel="self"/>
   
-  <link href="https://gitee.com/lscheng0905/lscheng0905/"/>
+  <link href="https://github.com/lscheng0905/lscheng0905/"/>
   <updated>2020-11-14T04:46:45.290Z</updated>
-  <id>https://gitee.com/lscheng0905/lscheng0905/</id>
+  <id>https://github.com/lscheng0905/lscheng0905/</id>
   
   <author>
     <name>lscheng/刘书程</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>typora-vue-theme主题介绍</title>
-    <link href="https://gitee.com/lscheng0905/lscheng0905/2020/11/14/test-my-site/"/>
-    <id>https://gitee.com/lscheng0905/lscheng0905/2020/11/14/test-my-site/</id>
+    <link href="https://github.com/lscheng0905/lscheng0905/2020/11/14/test-my-site/"/>
+    <id>https://github.com/lscheng0905/lscheng0905/2020/11/14/test-my-site/</id>
     <published>2020-11-14T01:25:00.000Z</published>
     <updated>2020-11-14T04:46:45.290Z</updated>
     
@@ -44,19 +44,19 @@
     
     
     
-    <category term="Markdown" scheme="https://gitee.com/lscheng0905/lscheng0905/categories/Markdown/"/>
+    <category term="Markdown" scheme="https://github.com/lscheng0905/lscheng0905/categories/Markdown/"/>
     
     
-    <category term="Typora" scheme="https://gitee.com/lscheng0905/lscheng0905/tags/Typora/"/>
+    <category term="Typora" scheme="https://github.com/lscheng0905/lscheng0905/tags/Typora/"/>
     
-    <category term="Markdown" scheme="https://gitee.com/lscheng0905/lscheng0905/tags/Markdown/"/>
+    <category term="Markdown" scheme="https://github.com/lscheng0905/lscheng0905/tags/Markdown/"/>
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="https://gitee.com/lscheng0905/lscheng0905/2020/11/13/hello-world/"/>
-    <id>https://gitee.com/lscheng0905/lscheng0905/2020/11/13/hello-world/</id>
+    <link href="https://github.com/lscheng0905/lscheng0905/2020/11/13/hello-world/"/>
+    <id>https://github.com/lscheng0905/lscheng0905/2020/11/13/hello-world/</id>
     <published>2020-11-13T15:33:13.638Z</published>
     <updated>2020-11-13T09:39:33.301Z</updated>
     
