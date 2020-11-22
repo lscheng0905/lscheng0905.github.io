@@ -4,6 +4,64 @@
   
     
     <entry>
+      <title>hbase的安装</title>
+      <link href="posts/7018.html"/>
+      <url>posts/7018.html</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>这里要特别感谢ysgg大佬分享他的踩坑记录，感谢他！</p></blockquote><h2 id="一、下载安装"><a href="#一、下载安装" class="headerlink" title="一、下载安装"></a>一、下载安装</h2><p>==安装使用hbase首先需要安装zookeeper==</p><p><a href="http://hbase.apache.org/downloads.html">传送门</a></p><p>这里是hbase2.3.2</p><p>依然解压后放在<code>/usr/local</code>下，并重新命名为<code>hbase</code>(可选)</p><blockquote><p>依然在hadoop用户下操作</p></blockquote><h2 id="二、配置文件"><a href="#二、配置文件" class="headerlink" title="二、配置文件"></a>二、配置文件</h2><h3 id="1-配置环境变量"><a href="#1-配置环境变量" class="headerlink" title="1. 配置环境变量"></a>1. 配置环境变量</h3><p>在<code>/home/hadoop/.bashrc</code>文件后添加</p><pre><code>export HBASE_HOME=/usr/local/hbaseexport PATH=$PATH:$HBASE_HOME/binexport HBASE_LOG_DIR=/usr/local/hbase/logs</code></pre><p>配置完后记得运行命令</p><pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">source</span> /home/hadoop/.bashrc<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h3 id="2-配置其他文件"><a href="#2-配置其他文件" class="headerlink" title="2. 配置其他文件"></a>2. 配置其他文件</h3><h4 id="2-1-hbase-env-sh"><a href="#2-1-hbase-env-sh" class="headerlink" title="2.1 hbase-env.sh"></a>2.1 hbase-env.sh</h4><p>修改<code>hbase/conf</code>文件下的配置文件<code>hbase-env.sh</code></p><pre class="line-numbers language-bash"><code class="language-bash">vim hbase-env.sh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><pre><code>export JAVA_HOME=/usr/local/jdk11export HBASE_MANAGES_ZK=false  #使用外部zookeeper，所以改成false</code></pre><h4 id="2-2-hbase-site-xml"><a href="#2-2-hbase-site-xml" class="headerlink" title="2.2 hbase-site.xml"></a>2.2 hbase-site.xml</h4><p>修改里面的内容</p><pre><code>  &lt;property&gt;    &lt;name&gt;hbase.cluster.distributed&lt;/name&gt;    &lt;value&gt;true&lt;/value&gt;  &lt;/property&gt;  &lt;property&gt;    &lt;name&gt;hbase.tmp.dir&lt;/name&gt;    &lt;value&gt;./tmp&lt;/value&gt;  &lt;/property&gt;  &lt;property&gt;    &lt;name&gt;hbase.unsafe.stream.capability.enforce&lt;/name&gt;    &lt;value&gt;false&lt;/value&gt;  &lt;/property&gt;  &lt;property&gt;    &lt;name&gt;hbase.rootdir&lt;/name&gt;    &lt;value&gt;hdfs://localhost:9000/hbase&lt;/value&gt;  &lt;/property&gt;  &lt;property&gt;    &lt;name&gt;hbase.zookeeper.quorum&lt;/name&gt;    &lt;value&gt;localhost&lt;/value&gt;  &lt;/property&gt;  &lt;/property&gt;   &lt;property&gt;    &lt;name&gt;hbase.master.info.port&lt;/name&gt;    &lt;value&gt;16010&lt;/value&gt;  &lt;/property&gt; &lt;property&gt;    &lt;name&gt;hbase.wal.provider&lt;/name&gt;    &lt;value&gt;filesystem&lt;/value&gt;  &lt;/property&gt;</code></pre><h2 id="三、开启服务"><a href="#三、开启服务" class="headerlink" title="三、开启服务"></a>三、开启服务</h2><p>对于hbase启动顺序：zookeeper–&gt;hadoop–&gt;hbase</p><p>对于hbase关闭顺序：hbase–&gt;hadoop–&gt;zookeeper</p><p>运行以下命令：(注意是在hadoop普通用户下运行)</p><pre><code>sudo service ssh startzkServer.sh start zoo1.cfgzkServer.sh start zoo2.cfgzkServer.sh start zoo3.cfgstart-all.shstart-hbase.shhbase shell</code></pre><p>结果应该是出现<code>xxx&gt;</code>，可在后面输入命令</p><p>输入<code>list</code>，<kbd>enter</kbd>。如果不报错则安装成功</p><h2 id="四、可能的问题"><a href="#四、可能的问题" class="headerlink" title="四、可能的问题"></a>四、可能的问题</h2><h3 id="1-没有master节点error-KeeperErrorCode-NoNode-for-hbase-master"><a href="#1-没有master节点error-KeeperErrorCode-NoNode-for-hbase-master" class="headerlink" title="1. 没有master节点error: KeeperErrorCode = NoNode for /hbase/master"></a>1. 没有master节点error: KeeperErrorCode = NoNode for /hbase/master</h3><p>重启<code>zookeeper</code>，<code>hadoop</code>，zookeeper状态必须保证是<code>STARTED</code></p><blockquote><p>反正出现该问题，不是hbase本身问题，而是zookeeper的影响，因为zookeeper是监控整个hbase节点状态，控制hbase集群通信的重要工具。</p></blockquote><h3 id="2-Call-to-localhost-127-0-0-1-9000-failed-on-connection-exception错误"><a href="#2-Call-to-localhost-127-0-0-1-9000-failed-on-connection-exception错误" class="headerlink" title="2. Call to localhost/127.0.0.1:9000 failed on connection exception错误"></a>2. Call to localhost/127.0.0.1:9000 failed on connection exception错误</h3><p>将目录 <code>/usr/local/hadoop/tmp/dfs/name</code>和 <code>/usr/local/hadoop/tmp/dfs/data</code>中的内容清空</p><p>执行</p><pre class="line-numbers language-bash"><code class="language-bash">bin/hadoop namenode -format<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>重启hadoop</p><h3 id="…持续更新其他问题"><a href="#…持续更新其他问题" class="headerlink" title="…持续更新其他问题"></a>…持续更新其他问题</h3>]]></content>
+      
+      
+      <categories>
+          
+          <category> zookeeper 大数据 hbase </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> hadoop </tag>
+            
+            <tag> 大数据 </tag>
+            
+            <tag> hbase </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>zookeeper的安装</title>
+      <link href="posts/46537.html"/>
+      <url>posts/46537.html</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>这里要特别感谢ysgg大佬分享他的踩坑记录，感谢他！</p></blockquote><h2 id="一、下载zookeeper"><a href="#一、下载zookeeper" class="headerlink" title="一、下载zookeeper"></a>一、下载zookeeper</h2><p><a href="https://webscripts.softpedia.com/script/Development-Scripts-js/Complete-applications/Apache-Hadoop-ZooKeeper-59851.html">传送门</a></p><p>这里的版本是3.6.2</p><p>下载好后解压放在<code>/usr/local</code>下，并且重命名为zookeeper(不是必须)</p><blockquote><p>依然接着上一篇文章说的，在hadoop用户下操作</p></blockquote><h2 id="二、配置文件"><a href="#二、配置文件" class="headerlink" title="二、配置文件"></a>二、配置文件</h2><p>在zookeeper目录下创建文件夹<code>dataDir</code>、<code>dataLogDir</code>和bin同级</p><p>dataDir下创建三个文件夹<code>zoo1_datadir</code>、<code>zoo2_datadir</code>、<code>zoo3_datadir</code>,并且在每个文件夹中创建一个名为<code>myid</code>的文件，注意没有后缀名，内容分别为1，2，3即可</p><p>dataLogDir下创建三个目录<code>zoo1_datalogdir</code>、<code>zoo2_datalogdir</code>、<code>zoo3_datalogdir</code></p><p>在conf目录下根据zoo_template.cfg复制三个文件</p><pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">cp</span> -r zoo_template.cfg zoo1.cfg<span class="token function">cp</span> -r zoo_template.cfg zoo2.cfg<span class="token function">cp</span> -r zoo_template.cfg zoo3.cfg<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><p>其中内容粘贴以下内容：</p><pre><code># The number of milliseconds of each ticktickTime=2000# The number of ticks that the initial # synchronization phase can takeinitLimit=10# The number of ticks that can pass between # sending a request and getting an acknowledgementsyncLimit=5# the directory where the snapshot is stored.# do not use /tmp for storage, /tmp here is just # example sakes.#这里是要配置的缓存和日志地址dataDir=/usr/local/zookeeper/dataDir/zoo1_datadirdataLogDir=/usr/local/zookeeper/dataLogDir/zoo1_datalogdir# the port at which the clients will connectclientPort=2181# the maximum number of client connections.# increase this if you need to handle more clients#maxClientCnxns=60## Be sure to read the maintenance section of the # administrator guide before turning on autopurge.## http://zookeeper.apache.org/doc/current/zookeeperAdmin.html#sc_maintenance## The number of snapshots to retain in dataDir#autopurge.snapRetainCount=3# Purge task interval in hours# Set to &quot;0&quot; to disable auto purge feature#autopurge.purgeInterval=1## Metrics Providers## https://prometheus.io Metrics Exporter#metricsProvider.className=org.apache.zookeeper.metrics.prometheus.PrometheusMetricsProvider#metricsProvider.httpPort=7000#metricsProvider.exportJvmInfo=true#这里的server.n中的n为myid里的值server.1=localhost:2887:3887server.2=localhost:2888:3888server.3=localhost:2889:3889</code></pre><p>==注意==:<br>每一个文件的内容需要该的地方是</p><pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true">#这里是要配置的缓存和日志地址</span>dataDir<span class="token operator">=</span>/usr/local/zookeeper/dataDir/zoo1_datadirdataLogDir<span class="token operator">=</span>/usr/local/zookeeper/dataLogDir/zoo1_datalogdir<span class="token comment" spellcheck="true"># the port at which the clients will connect</span>clientPort<span class="token operator">=</span>2181<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>前两个不用多说，最后一个端口号分别为2181、2182、2183</p><h3 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h3><p>在<code>/home/hadoop/.bashrc</code>文件后添加以下内容</p><pre><code>export ZOOKEEPER_HOME=/usr/local/zookeeperexport PATH=$PATH:$ZOOKEEPER_HOME/binexport ZOO_LOG_DIR=/usr/local/zookeeper/logs</code></pre><p>配置完后记得运行命令</p><pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">source</span> /home/hadoop/.bashrc<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>此时配置已经完成</p><h2 id="三、启动"><a href="#三、启动" class="headerlink" title="三、启动"></a>三、启动</h2><p>运行以下命令以测试是否开启成功</p><pre class="line-numbers language-bash"><code class="language-bash">zkServer.sh start zoo1.cfgzkServer.sh start zoo2.cfgzkServer.sh start zoo3.cfg<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><p>结果应为<code>STARTED</code></p><p>运行以下命令以查看三个节点的状态</p><pre class="line-numbers language-bash"><code class="language-bash">zkServer.sh status zoo1.cfgzkServer.sh status zoo2.cfgzkServer.sh status zoo3.cfg<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><p>结果应为<code>follwer</code>之类的主从关系</p><h2 id="四、可能出现的问题"><a href="#四、可能出现的问题" class="headerlink" title="四、可能出现的问题"></a>四、可能出现的问题</h2><h3 id="1-开启成功，检查状态的时候发现不是主从关系"><a href="#1-开启成功，检查状态的时候发现不是主从关系" class="headerlink" title="1. 开启成功，检查状态的时候发现不是主从关系"></a>1. 开启成功，检查状态的时候发现不是主从关系</h3><p>检查配置文件是否出错</p><p>重新启动zookeeper</p><p>如果还是有问题，说明zookeeper未重启成功，删除zk数据目录下之前生成的<code>version-2</code>文件夹，再重启。</p><h3 id="2-开启成功，检查状态发现开启失败"><a href="#2-开启成功，检查状态发现开启失败" class="headerlink" title="2. 开启成功，检查状态发现开启失败"></a>2. 开启成功，检查状态发现开启失败</h3><p>检查配置文件是否出错</p><p>重新启动zookeeper</p><p>如果还是有问题，说明zookeeper未重启成功，删除zk数据目录下之前生成的<code>version-2</code>文件夹，再重启。</p><h3 id="3-开启失败"><a href="#3-开启失败" class="headerlink" title="3. 开启失败"></a>3. 开启失败</h3><p>配置文件出错</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> zookeeper 大数据 hbase </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> hadoop </tag>
+            
+            <tag> 大数据 </tag>
+            
+            <tag> hbase </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Hadoop的安装(Ubantu、伪分布式)</title>
       <link href="posts/7584.html"/>
       <url>posts/7584.html</url>
@@ -13,7 +71,7 @@
       
       <categories>
           
-          <category> hadoop </category>
+          <category> hadoop 大数据 </category>
           
       </categories>
       
@@ -21,6 +79,8 @@
         <tags>
             
             <tag> hadoop </tag>
+            
+            <tag> 大数据 </tag>
             
         </tags>
       

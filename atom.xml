@@ -6,7 +6,7 @@
   <link href="https://github.com/lscheng0905/atom.xml" rel="self"/>
   
   <link href="https://github.com/lscheng0905/"/>
-  <updated>2020-11-22T04:58:51.839Z</updated>
+  <updated>2020-11-22T05:52:16.418Z</updated>
   <id>https://github.com/lscheng0905/</id>
   
   <author>
@@ -17,11 +17,75 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>hbase的安装</title>
+    <link href="https://github.com/lscheng0905/posts/7018.html"/>
+    <id>https://github.com/lscheng0905/posts/7018.html</id>
+    <published>2020-11-22T05:45:03.000Z</published>
+    <updated>2020-11-22T05:52:16.418Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;这里要特别感谢ysgg大佬分享他的踩坑记录，感谢他！&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;一、下载安装&quot;&gt;&lt;a href=&quot;#一、下载安装&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="zookeeper 大数据 hbase" scheme="https://github.com/lscheng0905/categories/zookeeper-%E5%A4%A7%E6%95%B0%E6%8D%AE-hbase/"/>
+    
+    
+    <category term="hadoop" scheme="https://github.com/lscheng0905/tags/hadoop/"/>
+    
+    <category term="大数据" scheme="https://github.com/lscheng0905/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+    <category term="hbase" scheme="https://github.com/lscheng0905/tags/hbase/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>zookeeper的安装</title>
+    <link href="https://github.com/lscheng0905/posts/46537.html"/>
+    <id>https://github.com/lscheng0905/posts/46537.html</id>
+    <published>2020-11-22T05:44:50.000Z</published>
+    <updated>2020-11-22T05:50:08.795Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;这里要特别感谢ysgg大佬分享他的踩坑记录，感谢他！&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;一、下载zookeeper&quot;&gt;&lt;a href=&quot;#一、下载zookeeper&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="zookeeper 大数据 hbase" scheme="https://github.com/lscheng0905/categories/zookeeper-%E5%A4%A7%E6%95%B0%E6%8D%AE-hbase/"/>
+    
+    
+    <category term="hadoop" scheme="https://github.com/lscheng0905/tags/hadoop/"/>
+    
+    <category term="大数据" scheme="https://github.com/lscheng0905/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+    <category term="hbase" scheme="https://github.com/lscheng0905/tags/hbase/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Hadoop的安装(Ubantu、伪分布式)</title>
     <link href="https://github.com/lscheng0905/posts/7584.html"/>
     <id>https://github.com/lscheng0905/posts/7584.html</id>
     <published>2020-11-21T11:25:00.000Z</published>
-    <updated>2020-11-22T04:58:51.839Z</updated>
+    <updated>2020-11-22T05:47:01.809Z</updated>
     
     
       
@@ -37,10 +101,12 @@
     
     
     
-    <category term="hadoop" scheme="https://github.com/lscheng0905/categories/hadoop/"/>
+    <category term="hadoop 大数据" scheme="https://github.com/lscheng0905/categories/hadoop-%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
     
     
     <category term="hadoop" scheme="https://github.com/lscheng0905/tags/hadoop/"/>
+    
+    <category term="大数据" scheme="https://github.com/lscheng0905/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
     
   </entry>
   
