@@ -6,7 +6,7 @@
   <link href="https://github.com/lscheng0905/atom.xml" rel="self"/>
   
   <link href="https://github.com/lscheng0905/"/>
-  <updated>2020-11-22T05:57:29.528Z</updated>
+  <updated>2020-11-22T19:04:30.402Z</updated>
   <id>https://github.com/lscheng0905/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://github.com/lscheng0905/posts/7018.html"/>
     <id>https://github.com/lscheng0905/posts/7018.html</id>
     <published>2020-11-22T05:45:03.000Z</published>
-    <updated>2020-11-22T05:57:29.528Z</updated>
+    <updated>2020-11-22T19:04:30.402Z</updated>
     
     
       
@@ -30,8 +30,7 @@
         
     <summary type="html">&lt;blockquote&gt;
 &lt;p&gt;这里要特别感谢ysgg大佬分享他的踩坑记录，感谢他！&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;一、下载安装&quot;&gt;&lt;a href=&quot;#一、下载安装&quot; class=&quot;headerlink&quot;</summary>
+&lt;p&gt;强烈推荐&lt;a</summary>
         
       
     
@@ -42,9 +41,9 @@
     <category term="大数据" scheme="https://github.com/lscheng0905/categories/hbase/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
     
     
-    <category term="hadoop" scheme="https://github.com/lscheng0905/tags/hadoop/"/>
-    
     <category term="大数据" scheme="https://github.com/lscheng0905/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+    <category term="zookeeper" scheme="https://github.com/lscheng0905/tags/zookeeper/"/>
     
     <category term="hbase" scheme="https://github.com/lscheng0905/tags/hbase/"/>
     
@@ -89,7 +88,7 @@
     <link href="https://github.com/lscheng0905/posts/7584.html"/>
     <id>https://github.com/lscheng0905/posts/7584.html</id>
     <published>2020-11-21T11:25:00.000Z</published>
-    <updated>2020-11-22T05:47:01.809Z</updated>
+    <updated>2020-11-22T19:03:15.390Z</updated>
     
     
       
@@ -98,8 +97,7 @@
         
     <summary type="html">&lt;blockquote&gt;
 &lt;p&gt;这里要特别感谢ysgg大佬分享他的踩坑记录，感谢他！&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;一、下载jdk配置环境变量&quot;&gt;&lt;a href=&quot;#一、下载jdk配置环境变量&quot; class=&quot;headerlink&quot;</summary>
+&lt;p&gt;强烈推荐&lt;a</summary>
         
       
     
@@ -119,7 +117,7 @@
     <link href="https://github.com/lscheng0905/posts/41794.html"/>
     <id>https://github.com/lscheng0905/posts/41794.html</id>
     <published>2020-11-14T08:25:00.000Z</published>
-    <updated>2020-11-21T12:22:33.866Z</updated>
+    <updated>2020-11-22T18:17:24.204Z</updated>
     
     
       
