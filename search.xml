@@ -22,9 +22,9 @@
       
         <tags>
             
-            <tag> 大数据 </tag>
-            
             <tag> zookeeper </tag>
+            
+            <tag> 大数据 </tag>
             
             <tag> hbase </tag>
             
@@ -53,11 +53,11 @@
       
         <tags>
             
-            <tag> hadoop </tag>
-            
             <tag> 大数据 </tag>
             
             <tag> hbase </tag>
+            
+            <tag> hadoop </tag>
             
         </tags>
       
@@ -82,9 +82,9 @@
       
         <tags>
             
-            <tag> hadoop </tag>
-            
             <tag> 大数据 </tag>
+            
+            <tag> hadoop </tag>
             
         </tags>
       
