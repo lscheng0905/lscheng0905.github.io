@@ -13,7 +13,9 @@
       
       <categories>
           
-          <category> zookeeper 大数据 hbase </category>
+          <category> hbase </category>
+          
+          <category> 大数据 </category>
           
       </categories>
       
@@ -42,7 +44,9 @@
       
       <categories>
           
-          <category> zookeeper 大数据 hbase </category>
+          <category> hbase </category>
+          
+          <category> 大数据 </category>
           
       </categories>
       
